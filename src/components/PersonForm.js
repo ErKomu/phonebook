@@ -58,6 +58,13 @@ const PersonForm = ({persons, setPersons, setNotification}) => {
               setNotification('')
             }, 5000)
           })
+          .catch(error => {
+            setNotification({message: error.response.data.error, type: 'error'})
+            setTimeout(() => {
+              setNotification('')
+            }, 5000)
+            console.log(error.response.data)
+          })
       }
     }
     return(
